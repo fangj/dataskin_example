@@ -1,11 +1,13 @@
-## 基本环境
+## JS全栈脚手架
 
-* 创建客户端基本项目
-```
-yarn create react-app client
-```
+* 后端 express
 
-* 创建服务端基本项目
-```
-npx express-generator --view=ejs server
-```
+* 前端 reactjs
+
+* 数据库: mongodb + parse server +parse dashboard
+
+* API文档: swagger doc
+
+* 支持文件上传下载,去重 (multer)
+
+* 支持 session (express-session)
