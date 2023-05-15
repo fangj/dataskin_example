@@ -165,8 +165,8 @@ yarn add parse-server
 module.exports={
     app_name:"test_app",
     http_server_port:"3000",
-    mongoServer:"mongodb://127.0.0.1:27017",
-    dbName:"test_db",
+    mongo_server:"mongodb://localhost:27017",
+    db_name:"test_db",
     parse_appId: 'parse_appId',
     parse_masterKey: 'parse_masterKey', 
 }
@@ -174,10 +174,10 @@ module.exports={
 ### 新建配置文件 server/config/parse_server_config.js
 
 ```
-const { http_server_port, mongoServer, dbName, parse_appId, parse_masterKey } = require('./config');
+const { http_server_port, mongo_server, db_name, parse_appId, parse_masterKey } = require('./config');
 
 module.exports = {
-    databaseURI: `${mongoServer}/${dbName}`,// Connection string for your MongoDB database
+    databaseURI: `${mongo_server}/${db_name}`,// Connection string for your MongoDB database
     // cloud: './cloud/main.js', // Path to your Cloud Code
     appId: parse_appId,
     masterKey: parse_masterKey, // Keep this key secret!
