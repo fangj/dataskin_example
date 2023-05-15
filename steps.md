@@ -18,13 +18,13 @@ npx express-generator server --view=ejs
 * 服务端
 `SET DEBUG=server:* & npm start`
 
-## 引入antd 5
+## 安装 antd 5
 
-`yarn add antd@^5`
+`yarn add antd`
 
 ## 调整服务端 router
 
-### 创建router.js
+### 创建server/router.js
 ```
 module.exports = function(app)  {
     app.use('/', require('./routes/index'));
@@ -58,3 +58,47 @@ require("./router")(app);
 改为 
 `const router = require("express-promise-router")();`
 
+## 客户端路由
+
+### 安装 react-router
+`yarn add react-router-dom`
+
+### 创建 client/src/router.jsx
+```
+import React from "react";
+import { createHashRouter } from "react-router-dom";
+import App from './App';
+const router = createHashRouter([
+    {
+        path: "/",
+        element: <App/>,
+    },
+    {
+        path: "/login",
+        element: <div>Login</div>,
+    },
+    {
+        path: "/*",
+        element: <div>Other</div>,
+    },
+]);
+
+export default router;
+```
+
+### 修改main.jsx
+
+删除
+```
+import App from './App.jsx'
+...
+<App />
+```
+
+添加
+```
+import {RouterProvider} from "react-router-dom";
+import router from "./router";
+...
+<RouterProvider router={router} />
+```
