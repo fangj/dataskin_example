@@ -163,12 +163,12 @@ yarn add parse-server
 ### 新建配置文件 server/config/config.js
 ```
 module.exports={
+    app_name:"test_app",
     http_server_port:"3000",
     mongoServer:"mongodb://127.0.0.1:27017",
     dbName:"test_db",
     parse_appId: 'parse_appId',
     parse_masterKey: 'parse_masterKey', 
-    parse_dashboard_appName:"test_app",
 }
 ```
 ### 新建配置文件 server/config/parse_server_config.js
@@ -215,10 +215,10 @@ http://localhost:3000/parse/health
 ### 新建 config/parse_dashboard_config.js
 
 ```
-const {parse_appId,parse_masterKey,parse_dashboard_appName}=require("./config");
+const {parse_appId,parse_masterKey,app_name}=require("./config");
 module.exports={
   "apps": [{
-    appName:parse_dashboard_appName,
+    appName:app_name,
     appId:parse_appId,
     masterKey:parse_masterKey,
     serverURL: '/parse'
@@ -256,3 +256,54 @@ http://localhost:3000/dashboard/
 const config=require('../config/config');
 var port = normalizePort(config.http_server_port || '3000');
 ```
+
+## 添加swagger doc
+
+### 安装 swagger
+`yarn add swagger-jsdoc swagger-ui-express`
+
+### 修改 server/app.js
+```
+//===swagger begin===
+const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger.json');
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+//用swaggerJsdoc从代码读取接口
+const {app_name}=require('./config/config'); 
+const swaggerJsdoc = require('swagger-jsdoc');
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: app_name,
+      version: '1.0.0',
+    },
+  },
+  apis: ['./routes/*.js'].map(p=>path.join(__dirname,p)), // files containing annotations as above
+};
+const swaggerSpec = swaggerJsdoc(options);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+//===swagger end===
+```
+
+### 在router/index.js 中写一个测试doc
+```
+//=== session test begin ===
+/**
+ * @openapi
+ * /test:
+ *   get:
+ *     summary: test api docs
+ *     responses:
+ *       200:
+ *         description: show "test" string
+ */
+router.get('/test', async function(req, res) {
+  res.send("test");
+});
+```
+
+### 测试
+http://localhost:3000/api-docs/
+

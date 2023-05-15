@@ -17,7 +17,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-require("./router")(app);
 
 //===parse server begin===
 
@@ -39,6 +38,33 @@ const dashboard = new ParseDashboard(require('./config/parse_dashboard_config.js
 app.use('/dashboard', dashboard);
 
 //=== parse dashboard end ===
+
+
+//===swagger begin===
+const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger.json');
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+//用swaggerJsdoc从代码读取接口
+const {app_name}=require('./config/config'); 
+const swaggerJsdoc = require('swagger-jsdoc');
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: app_name,
+      version: '1.0.0',
+    },
+  },
+  apis: ['./routes/*.js'].map(p=>path.join(__dirname,p)), // files containing annotations as above
+};
+const swaggerSpec = swaggerJsdoc(options);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+//===swagger end===
+
+//路由分派要放到最后
+require("./router")(app);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,7 +1,7 @@
-const {parse_appId,parse_masterKey,parse_dashboard_appName}=require("./config");
+const {parse_appId,parse_masterKey,app_name}=require("./config");
 module.exports={
   "apps": [{
-    appName:parse_dashboard_appName,
+    appName:app_name,
     appId:parse_appId,
     masterKey:parse_masterKey,
     serverURL: '/parse'
