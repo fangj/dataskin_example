@@ -203,3 +203,46 @@ app.use('/parse', parseServer.app);
 
 //===parse server end===
 ```
+
+### 测试
+
+http://localhost:3000/parse/health
+
+### 安装 parse-dashboard
+
+`yarn add parse-dashboard`
+
+### 新建 config/parse_dashboard_config.js
+
+```
+const {parse_appId,parse_masterKey,parse_dashboard_appName}=require("./config");
+module.exports={
+  "apps": [{
+    appName:parse_dashboard_appName,
+    appId:parse_appId,
+    masterKey:parse_masterKey,
+    serverURL: '/parse'
+  }],
+  "users": [
+    {
+      "user":"admin",
+      "pass":"3t1b"
+    }
+  ]
+};
+```
+
+### 在server/app.js 中添加
+
+```
+//=== parse dashboard begin ===
+
+const ParseDashboard = require('parse-dashboard');
+const dashboard = new ParseDashboard(require('./config/parse_dashboard_config.js'),{ allowInsecureHTTP: true });
+app.use('/dashboard', dashboard);
+
+//=== parse dashboard end ===
+```
+
+### 测试 
+http://localhost:3000/dashboard/

@@ -32,6 +32,14 @@ app.use('/parse', parseServer.app);
 
 //===parse server end===
 
+//=== parse dashboard begin ===
+
+const ParseDashboard = require('parse-dashboard');
+const dashboard = new ParseDashboard(require('./config/parse_dashboard_config.js'),{ allowInsecureHTTP: true });
+app.use('/dashboard', dashboard);
+
+//=== parse dashboard end ===
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
