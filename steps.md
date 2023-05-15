@@ -133,3 +133,19 @@ const Login = loadable(() => import("./routers/Login"), {fallback: <Loading /> }
         element: <Login/>,
     },
 ```
+
+
+### 开发时把请求代理到3000端口
+
+在vite.config.js中添加
+
+```
+    proxy: {
+      // 选项写法
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      },
+    }
+```
