@@ -246,3 +246,13 @@ app.use('/dashboard', dashboard);
 
 ### 测试 
 http://localhost:3000/dashboard/
+
+
+## 使用config的端口
+
+### 修改 bin/www
+
+```
+const config=require('../config/config');
+var port = normalizePort(config.http_server_port || '3000');
+```
