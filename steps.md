@@ -165,7 +165,7 @@ yarn add parse-server
 module.exports={
     app_name:"test_app",
     http_server_port:"3000",
-    mongo_server:"mongodb://localhost:27017",
+    mongo_server:"mongodb://127.0.0.1:27017",
     db_name:"test_db",
     parse_appId: 'parse_appId',
     parse_masterKey: 'parse_masterKey', 
@@ -307,3 +307,58 @@ router.get('/test', async function(req, res) {
 ### 测试
 http://localhost:3000/api-docs/
 
+
+## 添加session支持
+
+### 安装
+`yarn add express-session connect-mongodb-session`
+
+### 在server/app.js 中添加
+
+```
+//=== session begin ===
+//在dashboard前使用session导致dashboard无法正常显示。
+//使用session
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
+const {mongo_server}=require('./config/config');
+const store = new MongoDBStore({
+  uri: `${mongo_server}/connect_mongodb_session_store`, //使用mongo存放session数据
+  collection: 'mySessions'
+});
+// Catch errors
+store.on('error', function(error) {
+  console.log(error);
+});
+app.use(session({
+  store: store,
+  secret: 'secret_code',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false , //如果设为true,则必须使用https访问
+    maxAge:1000*60*60*8    //过期时间
+  },
+  rolling:true //在每次请求时强行设置 cookie，这将重置 cookie 过期时间（默认：false）
+}));
+//=== session end ===
+```
+
+### 写一个测试session的服务
+
+```
+//=== session test begin ===
+router.get('/view', async function(req, res) {
+  if (req.session.views) {
+    req.session.views++
+    res.setHeader('Content-Type', 'text/html')
+    res.write('<p>views: ' + req.session.views + '</p>')
+    res.write('<p>expires in: ' + (req.session.cookie.maxAge / 1000) + 's</p>')
+    res.end()
+  } else {
+    req.session.views = 1
+    res.end('welcome to the session demo. refresh!')
+  }
+});
+//=== session test end ===
+```

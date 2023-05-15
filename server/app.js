@@ -62,6 +62,35 @@ const swaggerSpec = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 //===swagger end===
 
+
+//=== session begin ===
+//在dashboard前使用session导致dashboard无法正常显示。
+//使用session
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
+const {mongo_server}=require('./config/config');
+const store = new MongoDBStore({
+  uri: `${mongo_server}/connect_mongodb_session_store`, //使用mongo存放session数据
+  collection: 'mySessions'
+});
+// Catch errors
+store.on('error', function(error) {
+  console.log(error);
+});
+app.use(session({
+  store: store,
+  secret: 'secret_code',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false , //如果设为true,则必须使用https访问
+    maxAge:1000*60*60*8    //过期时间
+  },
+  rolling:true //在每次请求时强行设置 cookie，这将重置 cookie 过期时间（默认：false）
+}));
+//=== session end ===
+
+
 //路由分派要放到最后
 require("./router")(app);
 
