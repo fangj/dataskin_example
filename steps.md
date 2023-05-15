@@ -149,3 +149,57 @@ const Login = loadable(() => import("./routers/Login"), {fallback: <Loading /> }
       },
     }
 ```
+
+## 添加parse
+
+### 安装 mongodb
+
+https://www.mongodb.com/try/download/community
+
+### 安装 parse-server
+
+yarn add parse-server
+
+### 新建配置文件 server/config/config.js
+```
+module.exports={
+    http_server_port:"3000",
+    mongoServer:"mongodb://127.0.0.1:27017",
+    dbName:"test_db",
+    parse_appId: 'parse_appId',
+    parse_masterKey: 'parse_masterKey', 
+    parse_dashboard_appName:"test_app",
+}
+```
+### 新建配置文件 server/config/parse_server_config.js
+
+```
+const { http_server_port, mongoServer, dbName, parse_appId, parse_masterKey } = require('./config');
+
+module.exports = {
+    databaseURI: `${mongoServer}/${dbName}`,// Connection string for your MongoDB database
+    // cloud: './cloud/main.js', // Path to your Cloud Code
+    appId: parse_appId,
+    masterKey: parse_masterKey, // Keep this key secret!
+    // fileKey: 'optionalFileKey',
+    serverURL: `http://localhost:${http_server_port}/parse`,  // Don't forget to change to https if needed
+    allowClientClassCreation: false,//是否允许客户端创建Class(发布的时候要改成false)
+};
+```
+
+### 在 server/app.js 中添加
+
+```
+//===parse server begin===
+
+const ParseServer = require('parse-server').ParseServer;
+const parseServer = new ParseServer(require('./config/parse_server_config.js'));
+
+// Start server
+parseServer.start();
+
+// Serve the Parse API on the /parse URL prefix
+app.use('/parse', parseServer.app);
+
+//===parse server end===
+```

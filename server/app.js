@@ -19,6 +19,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require("./router")(app);
 
+//===parse server begin===
+
+const ParseServer = require('parse-server').ParseServer;
+const parseServer = new ParseServer(require('./config/parse_server_config.js'));
+
+// Start server
+parseServer.start();
+
+// Serve the Parse API on the /parse URL prefix
+app.use('/parse', parseServer.app);
+
+//===parse server end===
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
