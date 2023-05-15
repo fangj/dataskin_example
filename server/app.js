@@ -31,6 +31,13 @@ app.use('/parse', parseServer.app);
 
 //===parse server end===
 
+//=== parse client begin ===
+const Parse = require('parse/node');
+const {appId, masterKey ,serverURL} = require('./config/parse_server_config.js');
+Parse.initialize(appId,null,masterKey);
+Parse.serverURL = serverURL;
+//=== parse client begin ===
+
 //=== parse dashboard begin ===
 
 const ParseDashboard = require('parse-dashboard');
