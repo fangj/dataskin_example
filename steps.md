@@ -102,3 +102,34 @@ import router from "./router";
 ...
 <RouterProvider router={router} />
 ```
+
+## 客户端按需加载
+
+### 安装loadable
+`yarn add @loadable/component`
+
+### 创建要按需加载的组件文件 routers/Login.jsx
+
+```
+import React from "react";
+
+export default()=><div>LoginPage</div>
+```
+
+### 在router.jsx文件中按需加载
+
+添加
+```
+import loadable from "@loadable/component";
+
+const Loading=()=><div>加载中...</div>
+const Login = loadable(() => import("./routers/Login"), {fallback: <Loading /> })
+```
+
+修改
+```
+    {
+        path: "/login",
+        element: <Login/>,
+    },
+```

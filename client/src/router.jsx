@@ -1,6 +1,11 @@
 import React from "react";
 import { createHashRouter } from "react-router-dom";
 import App from './App';
+import loadable from "@loadable/component";
+
+const Loading=()=><div>加载中...</div>
+const Login = loadable(() => import("./routers/Login"), {fallback: <Loading /> })
+
 const router = createHashRouter([
     {
         path: "/",
@@ -8,7 +13,7 @@ const router = createHashRouter([
     },
     {
         path: "/login",
-        element: <div>Login</div>,
+        element: <Login/>,
     },
     {
         path: "/*",
