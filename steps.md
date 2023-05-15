@@ -594,3 +594,69 @@ module.exports={
 ```
 app.use('/file', require('./routes/file'));
 ```
+
+## mobx
+
+### 安装
+`yarn add mobx mobx-react-lite`
+
+### 增加演示页面Coffee
+```
+import React from "react";
+import { Card, Statistic,Button } from 'antd';
+import { makeObservable,toJS,observable,action  } from "mobx"
+import { observer } from "mobx-react-lite"
+import CoffeeSvg  from "./coffee.svg";
+
+class CoffeeStore{
+    total=100
+
+    constructor() {
+        makeObservable(this, {
+            total: observable,
+            add: action
+        })
+    }
+
+    add(){
+        this.total+=1;
+    }
+
+}
+
+const store=new CoffeeStore();
+
+function CoffeePage() {
+    return(
+    <div>
+        <Card bordered={false}>
+        <img src={CoffeeSvg} />
+            <Statistic
+                title="销量"
+                value={store.total}
+                valueStyle={{
+                    color: '#3f8600',
+                }}
+                suffix="杯"
+            />
+        <Button onClick={()=>store.add()}>再来一杯</Button>
+        </Card>
+    </div>)
+
+}
+
+export default observer(CoffeePage)
+```
+
+### 增加路由
+```
+    {
+        path: "/coffee",
+        element: <Coffee/>,
+    },
+```
+
+### 测试
+
+http://localhost:5173/#/coffee
+

@@ -5,6 +5,7 @@ import loadable from "@loadable/component";
 
 const Loading=()=><div>加载中...</div>
 const Login = loadable(() => import("./routers/Login"), {fallback: <Loading /> })
+const Coffee = loadable(() => import("./routers/Coffee"), {fallback: <Loading /> })
 
 const router = createHashRouter([
     {
@@ -14,6 +15,10 @@ const router = createHashRouter([
     {
         path: "/login",
         element: <Login/>,
+    },
+    {
+        path: "/coffee",
+        element: <Coffee/>,
     },
     {
         path: "/*",
