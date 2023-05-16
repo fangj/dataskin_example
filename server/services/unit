@@ -1,0 +1,33 @@
+const Parse = require('parse/node');
+const Unit = Parse.Object.extend("Unit");
+
+ async function getUnit(key){
+    const query = new Parse.Query(Unit);
+    query.equalTo('key',key);
+    query.descending("updatedAt");
+    return query.first();
+}
+
+ async function getUnitValue(key){
+    const unit=await getUnit(key);
+    if(unit){
+        return unit.get("value");
+    }
+}
+
+ async function saveUnitValue(key,value){
+    let unit=await getUnit(key);
+    if(!unit){
+        unit=new Unit()
+        unit.set("key",key);
+    }
+    unit.set("value",value);
+    return unit.save();
+}
+
+
+module.exports={
+    getUnit,
+    getUnitValue,
+    saveUnitValue,
+}
