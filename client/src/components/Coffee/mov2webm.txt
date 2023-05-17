@@ -1,0 +1,1 @@
+ffmpeg -i love.mov -c:v libvpx -pix_fmt yuva420p -auto-alt-ref 0 love.webm
