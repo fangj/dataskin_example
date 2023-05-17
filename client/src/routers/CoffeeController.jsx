@@ -1,2 +1,2 @@
-import CoffeeController from "../components/CoffeeController";
+import CoffeeController from "../components/Coffee/CoffeeController";
 export default CoffeeController

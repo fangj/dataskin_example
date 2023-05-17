@@ -1,2 +1,2 @@
-import Coffee from "../components/Coffee";
+import Coffee from "../components/Coffee/Coffee";
 export default Coffee

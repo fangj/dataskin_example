@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Button } from 'antd';
-import { getUnit, saveUnit } from "../services/UnitRestfulService";
+import { getUnit, saveUnit } from "../../services/UnitRestfulService";
+import "./coffee.css";
 
 class UnitStore {
     data ={total:0}
@@ -27,10 +28,10 @@ const store = new UnitStore("coffee");
 
 export default function ControlPage() {
     return (
-        <div>
-            <Card bordered={false}>
+        <div className="coffee_bg ">
+            <div className="page_container">
                 <Button type="primary" onClick={() => store.increase()}>加一杯</Button>
-            </Card>
+            </div>
         </div>)
 }
 
