@@ -1,43 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { Button, ConfigProvider } from 'antd';
+import { Button ,Space } from 'antd';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
+    <div className='app_bg'>
     <div className="page_container">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <ConfigProvider
-          theme={{
-            token: {
-              colorPrimary: '#00b96b',
-            },
-          }}
-        >
-          <Button type='primary' >定制主题</Button>
-        </ConfigProvider>
-        <Button type='primary' onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <h1>数据可视化展示</h1>
+      <h3>样例1:饮料销量</h3>
+      <Space>
+        <Button href="/#/coffee" target="_blank"  type='primary'>
+          展示页面
+        </Button> 
+        <Button href="/#/coffee_controller" target="_blank">
+          控制页面
         </Button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        </Space>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }

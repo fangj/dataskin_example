@@ -1,24 +1,24 @@
 import React from "react";
-import { Card, Button } from 'antd';
+import { Card, Button, ConfigProvider } from 'antd';
 import { getUnit, saveUnit } from "../../services/UnitRestfulService";
 import "./coffee.css";
 
 class UnitStore {
-    data ={total:0}
-    key="";
+    data = { total: 0 }
+    key = "";
 
     constructor(key) {
-        this.key=key;
-        getUnit(key).then(data=>{
-            if(data){
-                this.data=data;
+        this.key = key;
+        getUnit(key).then(data => {
+            if (data) {
+                this.data = data;
             }
         })
     }
 
     increase() {
         this.data.total += 1;
-        saveUnit(this.key,this.data);
+        saveUnit(this.key, this.data);
     }
 
 }
@@ -30,7 +30,15 @@ export default function ControlPage() {
     return (
         <div className="coffee_bg ">
             <div className="page_container">
-                <Button type="primary" onClick={() => store.increase()}>加一杯</Button>
+                <ConfigProvider
+                    theme={{
+                        token: {
+                            colorPrimary: '#00b96b',
+                        },
+                    }}
+                >
+                    <Button type="primary" onClick={() => store.increase()}>加一杯</Button>
+                </ConfigProvider>
             </div>
         </div>)
 }
