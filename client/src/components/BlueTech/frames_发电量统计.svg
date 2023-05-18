@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515 452"><defs><style>.cls-1{fill:none;}.cls-1,.cls-5{stroke:#3c62c0;}.cls-2,.cls-3{isolation:isolate;}.cls-3{font-size:15px;fill:#65c6e7;font-family:MicrosoftYaHei, Microsoft YaHei;}.cls-4{fill:#52ffff;}.cls-4,.cls-5{fill-rule:evenodd;}.cls-5{fill:#061d3d;fill-opacity:0.5;}</style></defs><g id="图层_1" data-name="图层 1"><path class="cls-1" d="M.46,46,37-.06h190.8l27.68,36.94H511.58l3,384.49-26.69,30.69-63.53-.36-8.64-11.92-405.51.67.82-301L.46,135Z"/><g class="cls-2"><text class="cls-3" transform="translate(67.54 29.61)">发电量统计</text></g>
+
+<path class="cls-4" d="M326.51,34h54.05v4H326.51Z"><animate attributeName="fill-opacity" values="1;0;1;1" dur="3s" repeatCount="indefinite" /></path>
+
+<path class="cls-5" d="M35.78,57.84H499.35l1.56,345.09L481.4,425.22H21V78.75Z"/>
+
+<path class="cls-4" d="M25.5,420.89H80.75v4H25.5Z"><animate attributeName="fill-opacity" values="1;1;0;1;1" dur="5s" repeatCount="indefinite" /></path>
+
+</g></svg>

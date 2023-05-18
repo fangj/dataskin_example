@@ -1,0 +1,7 @@
+<svg id="收益统计" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 513 381"><defs><style>.cls-1{fill:none;}.cls-1,.cls-4{stroke:#3c62c0;}.cls-2{fill:#4c7299;}.cls-2,.cls-3,.cls-4{fill-rule:evenodd;}.cls-3{fill:#52ffff;}.cls-4{fill:#061d3d;fill-opacity:0.5;}.cls-5,.cls-6{isolation:isolate;}.cls-6{font-size:15px;fill:#65c6e7;font-family:MicrosoftYaHei, Microsoft YaHei;}</style></defs><path class="cls-1" d="M512.54,38.77,476,0H285.15L257.47,31.11H1.42l-3,324L26,380.92l62.7-.3,8.63-9.29,405.63-.19-.08-252.94,9.68-4.45Z"/>
+<path class="cls-2" d="M258.78,32V31H1.65v1Z"></path>
+<path class="cls-3" d="M132.43,28h54.06v4H132.43Z"><animate attributeName="fill-opacity" values="1;0;1;1" dur="3s" repeatCount="indefinite" /></path>
+
+<path class="cls-4" d="M477.21,57.89H13.65L12.38,339.8,31.6,357.72H492v-283Z"/>
+<path class="cls-3" d="M432.24,355.93h55.25v4H432.24Z"/>
+<g class="cls-5"><text class="cls-6" transform="translate(369.55 27.66)">收益统计</text></g></svg>

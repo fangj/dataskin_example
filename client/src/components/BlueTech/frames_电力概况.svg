@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515 382"><defs><style>.cls-1{fill:none;}.cls-1,.cls-6{stroke:#3c62c0;}.cls-2,.cls-3{isolation:isolate;}.cls-3{font-size:15px;fill:#65c6e7;font-family:MicrosoftYaHei, Microsoft YaHei;}.cls-4{fill:#4c7299;}.cls-4,.cls-5,.cls-6{fill-rule:evenodd;}.cls-5{fill:#52ffff;}.cls-6{fill:#061d3d;fill-opacity:0.5;}</style></defs><g id="图层_1" data-name="图层 1"><path class="cls-1" d="M.46,40.32,37,1.53h190.8l27.68,31.12H511.58l3,324-26.69,25.86-63.53-.31-8.64-9.29-405.51-.19L11,119.74.46,115.3Z"/><g class="cls-2"><text class="cls-3" transform="translate(66.54 27.14)">电力概况</text></g><path class="cls-4" d="M254.21,33.52v-1H511.35v1Z"/>
+<path class="cls-5" d="M326.51,29.57h54.05v4H326.51Z">
+ <animate attributeName="fill-opacity" values="1;1;0;1" dur="3s" repeatCount="indefinite" />
+</path>
+<path class="cls-6" d="M35.78,59.43H499.35l1.56,281.91L481.4,359.26H21v-283Z"/>
+<path class="cls-5" d="M25.5,357.48H80.75v4H25.5Z">
+<animate attributeName="fill-opacity" values="1;0;1;1" dur="3s" repeatCount="indefinite" />
+</path>
+</g></svg>

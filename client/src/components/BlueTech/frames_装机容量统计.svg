@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515 452"><defs><style>.cls-1{fill:none;}.cls-1,.cls-4{stroke:#3c62c0;}.cls-2{fill:#4c7299;}.cls-2,.cls-3,.cls-4{fill-rule:evenodd;}.cls-3{fill:#52ffff;}.cls-4{fill:#061d3d;fill-opacity:0.5;}.cls-5,.cls-6{isolation:isolate;}.cls-6{font-size:15px;fill:#65c6e7;font-family:MicrosoftYaHei, Microsoft YaHei;}</style></defs><g id="图层_1" data-name="图层 1"><path class="cls-1" d="M514.56,45.76,478-.27H287.17L259.49,36.67H3.44l-3,384.49L28,451.85l62.7-.37,8.64-11.91,405.63.66-.09-301,9.68-4.45Z"/>
+
+<path class="cls-2" d="M260.8,37.71v-1H3.67v1Z"><animate attributeName="fill-opacity" values="1;0;1;1" dur="3s" repeatCount="indefinite" /></path>
+
+<path class="cls-3" d="M134.45,33.77h54.06v4H134.45Z"/><path class="cls-4" d="M479.23,57.63H15.67L14.4,402.72,33.62,425H494.06V78.54Z"/><g class="cls-5"><text class="cls-6" transform="translate(352.57 30.4)">装机容量统计</text></g
+
+><path class="cls-3" d="M46.54,420.67h55.25v4H46.54Z"><animate attributeName="fill-opacity" values="1;0;1;1" dur="4s" repeatCount="indefinite" /></path>
+
+</g></svg>

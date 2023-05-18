@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 107"><defs><style>.cls-1{fill:#262f49;isolation:isolate;opacity:0.3;}.cls-1,.cls-2,.cls-3{fill-rule:evenodd;}.cls-2{fill:#041425;stroke:#31467d;}.cls-3{fill:#52ffff;}</style></defs><g id="head"><path class="cls-1" d="M-1.67,1.08h1921V86.23H-1.67Z"/><path class="cls-2" d="M1408.71,22.66l-32,84.51h-101.1l-5.82-10.88H643.06l-5.85,10.88H535.69L500.91,22.66H-1.67V-.28h1921V22.66Z"/>
+
+<path class="cls-3" d="M645,102.36h622.64l2.67,4h-628Z"><animate attributeName="fill-opacity" values="1;0.5;1;1" dur="5s" repeatCount="indefinite" /></path>
+
+</g></svg>
