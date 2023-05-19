@@ -25,11 +25,9 @@ const option = {
           { value: 10, name: '其他' }
         ],
         label: {
-            normal: {
                 show: true,
                 formatter: '{b}: {d}%', //自定义显示格式(b:name, c:value, d:百分比)
                 color: '#fff',
-            }
         }
       }
     ]

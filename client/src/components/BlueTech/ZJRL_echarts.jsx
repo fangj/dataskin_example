@@ -44,9 +44,7 @@ const option = {
       },
       label:{
         show:true,
-        textStyle:{
           color:"#fff"
-        }
       }
     }
   ]

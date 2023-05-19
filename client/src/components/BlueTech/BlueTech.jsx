@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Card, Statistic, Button } from 'antd';
 import { Col, Row } from 'antd';
 import { makeAutoObservable, autorun } from "mobx"
@@ -27,8 +27,38 @@ const store = new UnitStore("bluetech");
 
 
 function BlueTechPage() {
+
+    // 浏览器的高度 默认设置为0；
+    const [width, setWidth] = useState(1920); 
+ 
+    const resizeUpdate = (e) => {
+        // 通过事件对象获取浏览器窗口的高度
+        setWidth(window.innerWidth);
+    };
+ 
+    useEffect(() => {
+        // 页面刚加载完成后获取浏览器窗口的大小
+        setWidth(window.innerWidth)
+ 
+        // 页面变化时获取浏览器窗口的大小 
+        window.addEventListener('resize', resizeUpdate);
+ 
+        return () => {
+            // 组件销毁时移除监听事件
+            window.removeEventListener('resize', resizeUpdate);
+        }
+    }, []);
+
+    let scale=window.innerWidth/1920;
+    scale=(scale<0.5)?0.5:scale;
+    console.log(scale)
+    
+    const root=document.getElementById("root");
+    root.style.transform=`scale(${scale})`;
+    root.style.transformOrigin="left";
+    document.body.style.backgroundColor="#010812";
     return (
-        <div className="bluetech">
+        <div className="bluetech" >
             
             <video  width="800" height="600" muted   preload="auto" id="v2" loop autoPlay src={stars} type="video/webm" style={{position:"absolute",left:"50%",top:300,marginLeft:-400}}/>
            
