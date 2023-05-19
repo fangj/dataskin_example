@@ -57,6 +57,7 @@ function BlueTechPage() {
     root.style.transform=`scale(${scale})`;
     root.style.transformOrigin="left";
     document.body.style.backgroundColor="#010812";
+    document.body.style.overflow="hidden";
     return (
         <div className="bluetech" >
             
