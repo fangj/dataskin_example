@@ -20,7 +20,6 @@ import ZJRL from "./ZJRL_echarts";
 import SYTJ from "./SYTJ_echarts";
 import DLGK from "./DLGK";
 
-import spark from "./s01.webm";
 
 const store = new UnitStore("bluetech");
 
