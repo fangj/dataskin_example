@@ -20,6 +20,7 @@ import ZJRL from "./ZJRL_echarts";
 import SYTJ from "./SYTJ_echarts";
 import DLGK from "./DLGK";
 
+import stars from "./stars.webm";
 
 const store = new UnitStore("bluetech");
 
@@ -28,6 +29,9 @@ const store = new UnitStore("bluetech");
 function BlueTechPage() {
     return (
         <div className="bluetech">
+            
+            <video  width="800" height="600" muted   preload="auto" id="v2" loop autoPlay src={stars} type="video/webm" style={{position:"absolute",left:"50%",top:300,marginLeft:-400}}/>
+           
             <Row>
                 <Col span={24}>
                     <div className='head'>
