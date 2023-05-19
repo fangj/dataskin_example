@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Statistic, Button } from 'antd';
 import { Col, Row } from 'antd';
 import { makeAutoObservable, autorun } from "mobx"
@@ -28,83 +28,91 @@ const store = new UnitStore("bluetech");
 
 function BlueTechPage() {
 
-    // 浏览器的高度 默认设置为0；
-    const [width, setWidth] = useState(1920); 
- 
-    const resizeUpdate = (e) => {
-        // 通过事件对象获取浏览器窗口的高度
-        setWidth(window.innerWidth);
-    };
- 
-    useEffect(() => {
-        // 页面刚加载完成后获取浏览器窗口的大小
-        setWidth(window.innerWidth)
- 
-        // 页面变化时获取浏览器窗口的大小 
-        window.addEventListener('resize', resizeUpdate);
- 
-        return () => {
-            // 组件销毁时移除监听事件
-            window.removeEventListener('resize', resizeUpdate);
-        }
-    }, []);
 
-    let scale=window.innerWidth/1920;
-    scale=(scale<0.5)?0.5:scale;
+
+    const [size, setSize] = useState({
+        width: window.innerWidth,
+        hieght: window.innerHeight
+    })
+
+    const onResize = () => {
+        setSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        })
+        
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', onResize);
+        return (() => {
+            window.removeEventListener('resize', onResize)
+        })
+    }, [])
+
+
+
+    let scaleW = size.width / 1920;
+    let scaleH = size.height / 1080;
+    let scale = scaleW < scaleH ? scaleW : scaleH;
+    scale = (scale < 0.5) ? 0.5 : scale;
+    if(!scale){
+        scale=window.innerWidth/ 1920;;
+    }
     console.log(scale)
-    
-    const root=document.getElementById("root");
-    root.style.transform=`scale(${scale})`;
-    root.style.transformOrigin="left";
-    document.body.style.backgroundColor="#010812";
-    document.body.style.overflow="hidden";
+
+    const root = document.getElementById("root");
+    root.style.transform = `scale(${scale})`;
+    root.style.transformOrigin = "left";
+    document.body.style.backgroundColor = "#010812";
+    document.body.style.overflow = "hidden";
     return (
         <div className="bluetech" >
-            
-            <video  width="800" height="600" muted   preload="auto" id="v2" loop autoPlay src={stars} type="video/webm" style={{position:"absolute",left:"50%",top:300,marginLeft:-400}}/>
-           
+
+            <video width="800" height="600" muted preload="auto" id="v2" loop autoPlay src={stars} type="video/webm" style={{ position: "absolute", left: "50%", top: 300, marginLeft: -400 }} />
+
             <Row>
                 <Col span={24}>
                     <div className='head'>
-                        <img src={svg_head} style={{position:"absolute",width:"100%",height:107}}/>
-                    <h1>企业智能运营管理平台</h1>
+                        <img src={svg_head} style={{ position: "absolute", width: "100%", height: 107 }} />
+                        <h1>企业智能运营管理平台</h1>
                     </div>
                 </Col>
             </Row>
 
             <Row>
                 <Col span={7}>
-                <div className='电力概况'>
-                    <div className='graph'><DLGK/></div>
-                </div>
+                    <div className='电力概况'>
+                        <div className='graph'><DLGK /></div>
+                    </div>
                 </Col>
                 <Col span={10}>
-                    <div  className='运维统计'>
+                    <div className='运维统计'>
                         <div className='title'>运维统计(当月)</div>
-                        <div className='graph'><YWTJ/></div>
+                        <div className='graph'><YWTJ /></div>
                     </div>
                 </Col>
                 <Col span={7}>
-                <div className='收益统计'> 
-                    <div className='graph'><SYTJ/></div>
-                 </div>
+                    <div className='收益统计'>
+                        <div className='graph'><SYTJ /></div>
+                    </div>
                 </Col>
             </Row>
-            <Row style={{marginTop:20}}> 
+            <Row style={{ marginTop: 20 }}>
                 <Col span={7}>
-                <div className='发电量统计'> 
-                <div className='graph'><FDLTJ/></div>
-                 </div>
+                    <div className='发电量统计'>
+                        <div className='graph'><FDLTJ /></div>
+                    </div>
                 </Col>
                 <Col span={10}>
-                <div className='发电计划'> 
-                <div className='graph'><FDJH/></div>
-                 </div>
+                    <div className='发电计划'>
+                        <div className='graph'><FDJH /></div>
+                    </div>
                 </Col>
                 <Col span={7}>
-                <div className='装机容量统计'> 
-                <div className='graph'><ZJRL/></div>
-                 </div>
+                    <div className='装机容量统计'>
+                        <div className='graph'><ZJRL /></div>
+                    </div>
                 </Col>
             </Row>
         </div >)
