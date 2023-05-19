@@ -13,6 +13,8 @@ import svg_发电量统计 from "./frames_发电量统计.svg";
 import svg_收益统计 from "./frames_收益统计.svg";
 import svg_装机容量统计 from "./frames_装机容量统计.svg";
 
+import YWTJ from "./YWTJ";
+
 const store = new UnitStore("bluetech");
 
 
@@ -32,7 +34,12 @@ function BlueTechPage() {
                 <Col span={7}>
                 <div className='电力概况'>  </div>
                 </Col>
-                <Col span={10}>col-8</Col>
+                <Col span={10}>
+                    <div  className='运维统计'>
+                        <div className='title'>运维统计(当月)</div>
+                        <div className='graph'><YWTJ/></div>
+                    </div>
+                </Col>
                 <Col span={7}>
                 <div className='收益统计'>  </div>
                 </Col>
@@ -48,7 +55,7 @@ function BlueTechPage() {
                 <div className='装机容量统计'>  </div>
                 </Col>
             </Row>
-        </div>)
+        </div >)
 
 }
 
