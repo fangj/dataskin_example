@@ -13,7 +13,7 @@ import svg_发电量统计 from "./frames_发电量统计.svg";
 import svg_收益统计 from "./frames_收益统计.svg";
 import svg_装机容量统计 from "./frames_装机容量统计.svg";
 
-import YWTJ from "./YWTJ";
+import YWTJ from "./YWTJ_echarts";
 
 const store = new UnitStore("bluetech");
 
