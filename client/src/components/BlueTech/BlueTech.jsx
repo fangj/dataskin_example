@@ -14,6 +14,12 @@ import svg_收益统计 from "./frames_收益统计.svg";
 import svg_装机容量统计 from "./frames_装机容量统计.svg";
 
 import YWTJ from "./YWTJ_echarts";
+import FDLTJ from "./FDLTJ_echarts";
+import FDJH from "./FDJH_echarts";
+import ZJRL from "./ZJRL_echarts";
+import SYTJ from "./SYTJ_echarts";
+import DLGK from "./DLGK";
+
 
 const store = new UnitStore("bluetech");
 
@@ -25,6 +31,7 @@ function BlueTechPage() {
             <Row>
                 <Col span={24}>
                     <div className='head'>
+                        <img src={svg_head} style={{position:"absolute",width:"100%",height:107}}/>
                     <h1>企业智能运营管理平台</h1>
                     </div>
                 </Col>
@@ -32,7 +39,9 @@ function BlueTechPage() {
 
             <Row>
                 <Col span={7}>
-                <div className='电力概况'>  </div>
+                <div className='电力概况'>
+                    <div className='graph'><DLGK/></div>
+                </div>
                 </Col>
                 <Col span={10}>
                     <div  className='运维统计'>
@@ -41,18 +50,26 @@ function BlueTechPage() {
                     </div>
                 </Col>
                 <Col span={7}>
-                <div className='收益统计'>  </div>
+                <div className='收益统计'> 
+                    <div className='graph'><SYTJ/></div>
+                 </div>
                 </Col>
             </Row>
             <Row style={{marginTop:20}}> 
                 <Col span={7}>
-                <div className='发电量统计'>  </div>
+                <div className='发电量统计'> 
+                <div className='graph'><FDLTJ/></div>
+                 </div>
                 </Col>
                 <Col span={10}>
-                <div className='发电计划'>  </div>
+                <div className='发电计划'> 
+                <div className='graph'><FDJH/></div>
+                 </div>
                 </Col>
                 <Col span={7}>
-                <div className='装机容量统计'>  </div>
+                <div className='装机容量统计'> 
+                <div className='graph'><ZJRL/></div>
+                 </div>
                 </Col>
             </Row>
         </div >)

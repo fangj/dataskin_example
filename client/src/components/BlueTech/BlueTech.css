@@ -7,12 +7,8 @@
 }
 
 .bluetech .head {
-    background-image: url("./frames_head.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
     width: 100%;
     min-height: 107px;
-    margin: auto;
 }
 
 .bluetech .head h1 {
@@ -51,6 +47,14 @@
     margin: auto;
 }
 
+.bluetech .电力概况 .graph {
+    margin: 0 auto;
+    height: 260px;
+    width:  360px;
+    padding: 90px 60px;
+}
+
+
 .bluetech .收益统计 {
     background-image: url("./frames_收益统计.svg");
     background-size: contain;
@@ -59,6 +63,14 @@
     min-height: 382px;
     margin: auto;
 }
+
+.bluetech .收益统计 .graph {
+    margin: 0 auto;
+    width: 400px;
+    height:  250px;
+    padding-top: 90px;
+}
+
 
 .bluetech .发电量统计 {
     background-image: url("./frames_发电量统计.svg");
@@ -69,6 +81,14 @@
     margin: auto;
 }
 
+.bluetech .发电量统计 .graph {
+    margin: 0 auto;
+    width: 430px;
+    height:  300px;
+    padding-top: 90px;
+}
+
+
 .bluetech .发电计划 {
     background-image: url("./frames_发电计划.svg");
     background-size: contain;
@@ -76,6 +96,13 @@
     width: 763px;
     min-height: 515px;
     margin: auto;
+}
+
+.bluetech .发电计划 .graph {
+    margin: 0 auto;
+    width: 640px;
+    height:  340px;
+    padding-top: 90px;
 }
 
 
@@ -86,4 +113,11 @@
     width: 515px;
     min-height: 452px;
     margin: auto;
+}
+
+.bluetech .装机容量统计 .graph {
+    margin: 0 auto;
+    width: 390px;
+    height:  230px;
+    padding-top: 90px;
 }
