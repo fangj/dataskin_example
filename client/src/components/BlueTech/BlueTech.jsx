@@ -29,9 +29,6 @@ const store = new UnitStore("bluetech");
 function BlueTechPage() {
     return (
         <div className="bluetech">
-            <video  width="100%" height="100%" muted   preload="auto" id="v2" loop autoPlay
-            src={spark} type="video/webm" style={{position:"absolute",left:0,top:0}}>
-        </video>
             <Row>
                 <Col span={24}>
                     <div className='head'>
