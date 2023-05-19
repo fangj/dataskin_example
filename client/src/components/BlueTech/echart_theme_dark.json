@@ -26,7 +26,7 @@
     "textStyle": {},
     "title": {
         "textStyle": {
-            "color": "#eeeeee"
+            "color": "#65c6e7"
         },
         "subtextStyle": {
             "color": "#aaaaaa"
@@ -184,24 +184,24 @@
         "axisLine": {
             "show": true,
             "lineStyle": {
-                "color": "#eeeeee"
+                "color": "#65c6e7"
             }
         },
         "axisTick": {
             "show": true,
             "lineStyle": {
-                "color": "#eeeeee"
+                "color": "#65c6e7"
             }
         },
         "axisLabel": {
             "show": true,
-            "color": "#eeeeee"
+            "color": "#65c6e7"
         },
         "splitLine": {
             "show": true,
             "lineStyle": {
                 "color": [
-                    "#aaaaaa"
+                    "#65c6e7"
                 ]
             }
         },
@@ -209,7 +209,7 @@
             "show": false,
             "areaStyle": {
                 "color": [
-                    "#eeeeee"
+                    "#65c6e7"
                 ]
             }
         }
@@ -218,24 +218,24 @@
         "axisLine": {
             "show": true,
             "lineStyle": {
-                "color": "#eeeeee"
+                "color": "#65c6e7"
             }
         },
         "axisTick": {
             "show": true,
             "lineStyle": {
-                "color": "#eeeeee"
+                "color": "#65c6e7"
             }
         },
         "axisLabel": {
             "show": true,
-            "color": "#eeeeee"
+            "color": "#65c6e7"
         },
         "splitLine": {
             "show": true,
             "lineStyle": {
                 "color": [
-                    "#aaaaaa"
+                    "#65c6e7"
                 ]
             }
         },
@@ -243,7 +243,7 @@
             "show": false,
             "areaStyle": {
                 "color": [
-                    "#eeeeee"
+                    "#65c6e7"
                 ]
             }
         }
