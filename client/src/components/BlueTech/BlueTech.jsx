@@ -60,23 +60,23 @@ function BlueTechPage() {
         scale=window.innerWidth/ 1920;;
     }
     // console.log(scale)
-    const containerStyle={
-        position:"absolute",
-        top:0,
-        left:0,
+    const screenStyle={
         width:"100vw",
         height:"100vh",
         backgroundColor: "#010812",
         overflow:"hidden",
     }
     const screenCoreStyle={
-        width:1920,
-        height:1080,
-        transform:`scale(${scale})`,
-        transformOrigin : "left top",
+        position: "absolute",
+        width: "1920px",  //设计稿的宽度
+        height: "1080px",  //设计稿的高度
+        left: "50%",
+        top: "50%",
+        transformOrigin: "left top",
+        transform:`scale(${scale})  translate(-50%, -50%)`,
     }
     return (
-        <div style={containerStyle}>
+        <div style={screenStyle}>
         <div className="bluetech" style={screenCoreStyle}>
 
             <video width="800" height="600" muted preload="auto" id="v2" loop autoPlay src={stars} type="video/webm" style={{ position: "absolute", left: "50%", top: 300, marginLeft: -400 }} />
