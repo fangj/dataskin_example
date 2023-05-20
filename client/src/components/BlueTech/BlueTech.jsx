@@ -59,15 +59,25 @@ function BlueTechPage() {
     if(!scale){
         scale=window.innerWidth/ 1920;;
     }
-    console.log(scale)
-
-    const root = document.getElementById("root");
-    root.style.transform = `scale(${scale})`;
-    root.style.transformOrigin = "left";
-    document.body.style.backgroundColor = "#010812";
-    document.body.style.overflow = "hidden";
+    // console.log(scale)
+    const containerStyle={
+        position:"absolute",
+        top:0,
+        left:0,
+        width:"100vw",
+        height:"100vh",
+        backgroundColor: "#010812",
+        overflow:"hidden",
+    }
+    const screenCoreStyle={
+        width:1920,
+        height:1080,
+        transform:`scale(${scale})`,
+        transformOrigin : "left top",
+    }
     return (
-        <div className="bluetech" >
+        <div style={containerStyle}>
+        <div className="bluetech" style={screenCoreStyle}>
 
             <video width="800" height="600" muted preload="auto" id="v2" loop autoPlay src={stars} type="video/webm" style={{ position: "absolute", left: "50%", top: 300, marginLeft: -400 }} />
 
@@ -115,6 +125,7 @@ function BlueTechPage() {
                     </div>
                 </Col>
             </Row>
+            </div>
         </div >)
 
 }
