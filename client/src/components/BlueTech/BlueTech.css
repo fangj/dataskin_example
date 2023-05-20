@@ -10,6 +10,9 @@
 }
 
 .bluetech .head {
+    background-image: url("./frames_head.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 100%;
     min-height: 107px;
 }

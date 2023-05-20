@@ -28,7 +28,6 @@ function BlueTechPage() {
             <Row>
                 <Col span={24}>
                     <div className='head'>
-                        <img src={svg_head} style={{ position: "absolute", width: "100%", height: 107 }} />
                         <h1>企业智能运营管理平台</h1>
                     </div>
                 </Col>
