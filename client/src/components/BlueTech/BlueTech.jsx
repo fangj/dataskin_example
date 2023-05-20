@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Card, Statistic, Button } from 'antd';
 import { Col, Row } from 'antd';
-import { makeAutoObservable, autorun } from "mobx"
 import { observer } from "mobx-react-lite"
+import FullScreenContainer from "../common/FullScreenContainer";
 import UnitStore from "../../stores/UnitStore";
 import "./BlueTech.css";
 
 import svg_head from "./frames_head.svg";
-import svg_电力概况 from "./frames_电力概况.svg";
-import svg_发电计划 from "./frames_发电计划.svg";
-import svg_发电量统计 from "./frames_发电量统计.svg";
-import svg_收益统计 from "./frames_收益统计.svg";
-import svg_装机容量统计 from "./frames_装机容量统计.svg";
 
 import YWTJ from "./YWTJ_echarts";
 import FDLTJ from "./FDLTJ_echarts";
@@ -24,60 +18,10 @@ import stars from "./stars.webm";
 
 const store = new UnitStore("bluetech");
 
-
-
 function BlueTechPage() {
-
-
-
-    const [size, setSize] = useState({
-        width: window.innerWidth,
-        hieght: window.innerHeight
-    })
-
-    const onResize = () => {
-        setSize({
-            width: window.innerWidth,
-            height: window.innerHeight,
-        })
-        
-    };
-
-    useEffect(() => {
-        window.addEventListener('resize', onResize);
-        return (() => {
-            window.removeEventListener('resize', onResize)
-        })
-    }, [])
-
-
-
-    let scaleW = size.width / 1920;
-    let scaleH = size.height / 1080;
-    let scale = scaleW < scaleH ? scaleW : scaleH;
-    scale = (scale < 0.5) ? 0.5 : scale;
-    if(!scale){
-        scale=window.innerWidth/ 1920;;
-    }
-    // console.log(scale)
-    const screenStyle={
-        width:"100vw",
-        height:"100vh",
-        backgroundColor: "#010812",
-        overflow:"hidden",
-    }
-    const screenCoreStyle={
-        position: "absolute",
-        width: "1920px",  //设计稿的宽度
-        height: "1080px",  //设计稿的高度
-        left: "50%",
-        top: "50%",
-        transformOrigin: "left top",
-        transform:`scale(${scale})  translate(-50%, -50%)`,
-    }
     return (
-        <div style={screenStyle}>
-        <div className="bluetech" style={screenCoreStyle}>
+        <FullScreenContainer width={1920} height={1080} backgroundColor="#010812">
+        <div className="bluetech">
 
             <video width="800" height="600" muted preload="auto" id="v2" loop autoPlay src={stars} type="video/webm" style={{ position: "absolute", left: "50%", top: 300, marginLeft: -400 }} />
 
@@ -126,7 +70,7 @@ function BlueTechPage() {
                 </Col>
             </Row>
             </div>
-        </div >)
+        </FullScreenContainer >)
 
 }
 
