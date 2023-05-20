@@ -39,7 +39,13 @@ const option = {
       type: 'bar',
       grid:{show:false}
     }
-  ]
+  ],
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
 };
 
 export default ()=>{

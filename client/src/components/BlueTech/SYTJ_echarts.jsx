@@ -38,7 +38,13 @@ const option = {
         ])
       },
     }
-  ]
+  ],
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
 };
 
 export default ()=>{

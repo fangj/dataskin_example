@@ -30,7 +30,7 @@ const option = {
     // Map the score column to color
     dimension: 0,
     inRange: {
-      color: ['#55a571', '#eFbE24', '#eD564F']
+      color: ['#2ec7c9', '#ffb980', '#d87a80']
     }
   },
   series: [
@@ -47,7 +47,13 @@ const option = {
           color:"#fff"
       }
     }
-  ]
+  ],
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
 };
 export default ()=>{
     return <div>
